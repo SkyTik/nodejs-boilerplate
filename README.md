@@ -9,3 +9,8 @@
  - [Mongodb Client](https://www.npmjs.com/package/mongodb)  
  - [Pino](https://www.npmjs.com/package/pino) for logging
  - Dockerfile (phases divided into **Build** and **Run**)
+
+### Usage
+
+ - Usage nodemon while developing: `npm run dev`
+ - Run build: `npm run build`
