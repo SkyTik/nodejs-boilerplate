@@ -33,6 +33,7 @@
   },
   "rules": {
     "import/extensions": 0,
+    "no-return-await": 0,
     "prettier/prettier": [
       "error",
       {

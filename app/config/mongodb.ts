@@ -1,12 +1,12 @@
 import { MongoClient } from 'mongodb';
 
-const url = process.env.MONGODB_URL ?? '';
-const client = new MongoClient(url, { maxPoolSize: 10 });
+export default class MongoDBConnection {
+  private static client: MongoClient;
 
-async function createConnection(databaseName: string, collectionName: string) {
-  const cl = await client.connect();
-  const db = cl.db(databaseName);
-  return db.collection(collectionName);
+  public static async getInstance(uri: string): Promise<MongoClient> {
+    if (!MongoDBConnection.client) {
+      MongoDBConnection.client = await MongoClient.connect(uri, { maxPoolSize: 20 });
+    }
+    return MongoDBConnection.client;
+  }
 }
-
-export default createConnection;
